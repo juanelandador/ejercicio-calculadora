@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+*{
+     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+   text-align: center;
+}
+body{
+    font-family:Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+    font-size: 18px;
+}
+.contenedor{
+    display: grid;
+    grid-template:repeat(6,35px)/repeat(4,1fr);
+    galp:5px;
+    
+    inline-size: 55%;
+    min-inline-size:300px;
+    margin:50px auto;
+}
+
+.boton{
+    
+    height: 25px;
+    border: 2px double #7A7777;
+    background: #D7D7D7;
+}
+#pantalla{
+    
+    grid-column:1/5;
+    
+    background: #000;
+    font-size: 25px;
+    color: lightgreen;
+}
+
+#boton19{
+    background: red;
+  grid-column: 3/5;  
+}

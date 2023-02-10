@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>FOR</title>
+   
+    <link href="calculadora3.css" rel="stylesheet" type="text/css">
+  
+    <script>
+    var cifra="";
+    var acumulado=0;
+    var p_operacion=true;    
+    var sumar=false;
+    var restar=false;
+    
+    function display_num(numero){
+        document.getElementById("pantalla").value=cifra+numero;
+        cifra=document.getElementById("pantalla").value;
+    }
+        
+    function suma(){
+        if(restar){
+          acumulado=acumulado-parseInt(cifra);
+        document.getElementById("pantalla").value=acumulado;  
+        }else{
+        acumulado=acumulado+parseInt(cifra);
+        document.getElementById("pantalla").value=acumulado;    
+        }
+        
+        cifra="";
+        restar=false;
+        sumar=true;
+        p_operacion=false;
+    }
+    
+     function resta(){
+         if(p_operacion==false){
+             if (sumar){
+                 acumulado=acumulado+parseInt(cifra);
+                 document.getElementById("pantalla").value=acumulado;
+             }else{
+               acumulado=acumulado-parseInt(cifra);
+                document.getElementById("pantalla").value=acumulado;  
+             }
+         }else{
+             acumulado=parseInt(cifra);
+             p_operacion=false;
+         }
+        cifra="";
+        sumar=false;
+        restar=true;
+    }
+    
+     function resultado(){
+         if(sumar){
+             document.getElementById("pantalla").value=acumulado+parseInt(cifra);
+         }
+         
+          if(resta){
+             document.getElementById("pantalla").value=acumulado-parseInt(cifra);
+         }
+         acumulado=parseInt(cifra);     /*parseInt(document.getElementById("pantalla").value);*/
+         cifra="";
+     }   
+   /* function resta(){
+         acumulado=acumulado-parseInt(cifra);
+          document.getElementById("pantalla").value=acumulado;
+            
+    }
+    function multiplica(){
+         acumulado=acumulado*parseInt(cifra);
+          document.getElementById("pantalla").value=acumulado;
+        cifra="";       
+    }
+    function divide(){
+         acumulado=acumulado/parseInt(cifra);
+          document.getElementById("pantalla").value=acumulado;
+        cifra=0;       
+    }
+        
+        
+   //function operador(signo)
+        {
+            alert("entor operar");
+
+            primernum=parseInt(cifra);
+
+            if(signo!=5&&cifr!=""){ 
+            cifra="";
+            display_num(numero);
+            }else{
+           
+                segundonum=parseInt(cifra);
+                cifra=""
+                
+                if(signo=1){
+                acumulado=primernum+segundonum;
+                }
+                else if(signo=2){
+                acumulado=primernum-segundonum;
+                }
+                else if(signo=3){
+                acumulado=primernum*segundonum;
+                }
+                else if(signo=4){
+                acumulado=primernum/segundonum;
+                }
+            }
+            if(signo=5&&cifra!=""){
+                document.getElementById("pantalla").value=acumulado;
+                acumulado=0;
+                }
+                primernum=0;
+                segundonum=0;  
+            
+        }
+        
+    }*/
+        
+    </script>
+    
+</head>
+
+<body>
+    <div class="contenedor">
+           <input type="text" name="pantalla" id="pantalla"/>        
+           <botton class="boton" id="+" value="+" onclick="suma()">+</botton>
+           <botton class="boton" id="-" value="-"  onclick="resta()">-</botton>
+           <botton class="boton" id="*" value="*" onclick="multiplica()">*</botton>
+           <botton class="boton" id="/" value="/" onclick="divide()">/</botton>
+           <botton class="boton" id="boton1" value="1" onclick="display_num(1)">1</botton>
+           <botton class="boton" id="boton2" value="2" onclick="display_num(2)">2</botton>
+           <botton class="boton" id="boton3" value="3" onclick="display_num(3)">3</botton>
+            <botton class="boton" id="boton15" value=""> </botton>
+           <botton class="boton" id="boton4" value="4" onclick="display_num(4)">4</botton>
+           <botton class="boton" id="boton5" value="5" onclick="display_num(5)">5</botton>
+           <botton class="boton" id="boton6" value="6" onclick="display_num(6)">6</botton>
+           <botton class="boton" id="boton16" value=""> </botton> 
+           <botton class="boton" id="boton7" value="7" onclick="display_num(7)">7</botton>
+           <botton class="boton" id="boton8" value="8" onclick="display_num(8)">8</botton>
+           <botton class="boton" id="boton9" value="9" onclick="display_num(9)">9</botton>
+            <botton class="boton" id="boton17" value=""> </botton>       
+           <botton class="boton" id="boton0" value="0" onclick="display_num(0)">0</botton>
+           <botton class="boton" id="boton18" value=".""display_num(.)">.</botton>
+           <botton class="boton" id="boton19" value="=" onclick="resultado()">=</botton>        
+    </div>
+    
+    <script>
+        document.getElementById("pantalla").value=0;
+    </script>
+</body>
+</html>
